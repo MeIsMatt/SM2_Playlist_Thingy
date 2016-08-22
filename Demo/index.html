@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Soundmanager2 - AutoDj</title>
+    <script src="soundmanager2.js"></script> <!-- SOUNDMANAGER 2 FIRST!! -->
+    <script src="AutoDj.js"></script>
+    <script>
+        //Add sounds
+        AutoDj.AddSong("Sounds/-8Bit-Kubbi - Up In My Jam (All Of A Sudden) [Free Download].mp3")
+        AutoDj.AddSong("Sounds/Bob Ross Remixed - Happy Little Clouds - PBS Digital Studios.mp3")
+        AutoDj.AddSong("Sounds/Roomie_-_Its_Muffin_Time.mp3")
+        //Load sounds
+        AutoDj.LoadAll()
+    </script>
+</head>
+<body>
+    <center>
+        <h1>AutoDj Demo Page</h1>
+        <hr />
+        <button onclick="AutoDj.PlayNext()">Start/PlayNext</button>
+        <br /><br />
+        <button onclick="AutoDj.Play(1)">Jump to song 1</button>
+        <button onclick="AutoDj.Play(2)">Jump to song 2</button>
+        <button onclick="AutoDj.Play(3)">Jump to song 3</button>
+        <br /><br />
+        <button onclick="AutoDj.SetVolume(0)">Set volume to 0%</button>
+        <button onclick="AutoDj.SetVolume(50)">Set volume to 50%</button>
+        <button onclick="AutoDj.SetVolume(100)">Set volume to 100%</button>
+        <hr /><br />
+        <h2><a href="https://www.github.com/mindgamesnl">GitHub</a></h2>
+    </center>
+</body>
+</html>
