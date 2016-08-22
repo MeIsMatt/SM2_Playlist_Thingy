@@ -1,5 +1,5 @@
 # AutoDj (for soundmanager2)
-AutoDj.js is a free plugin to create a playlist and play it (automaticly) with soundmanager2<br />
+AutoDj.js is a free plugin to create a playlist and play it (automatically) with soundmanager2<br />
 
 # How to use
 Add a file to the playlist
