@@ -1,19 +1,19 @@
 var PlayList_songs = {}; var AutoDj = {}; AutoDj.AddedCount = 1; AutoDj.Volume = 50; AutoDj.IdOfNowPlaying = 1;
 AutoDj.AddSong = function (File) {
         PlayList_songs["_" + AutoDj.AddedCount] = {"File": File};
-        AutoDj.AddedCount++
+        this.AddedCount++
         PlayList_songs["_" + AutoDj.AddedCount] = "end";
 }
 AutoDj.SetVolume = function (newvolume) {
         if (newvolume > 100) {
                 soundManager.setVolume(100);
-                AutoDj.Volume = 100;
+                this.Volume = 100;
         } else if (newvolume < 0) {
                 soundManager.setVolume(0);
-                AutoDj.Volume = 100;
+                this.Volume = 100;
         } else {
                 soundManager.setVolume(newvolume);
-              AutoDj.Volume = 100;
+                this.Volume = 100;
         }
 }
 AutoDj.LoadAll = function () {
@@ -42,15 +42,15 @@ AutoDj.Check = function (song_id) {
         }
 }
 AutoDj.Play = function (FNC_ID) {
-      if (AutoDj.Check(FNC_ID) === true) {
+      if (this.Check(FNC_ID) === true) {
              var thisdata = AutoDj["SongData_" + FNC_ID];
-             AutoDj.SoundManager_Play(thisdata.File)
+             this.SoundManager_Play(thisdata.File)
       } else {
              console.log("not playing")
       }
 }
 AutoDj.SoundManager_Play = function (fnc_file) {
-        var VolumeNow = AutoDj.Volume;
+        var VolumeNow = this.Volume;
         soundManager.destroySound('AutoDj');
         var mySoundObject = soundManager.createSound({
             id: "AutoDj",
@@ -61,12 +61,12 @@ AutoDj.SoundManager_Play = function (fnc_file) {
         });
 }
 AutoDj.PlayNext = function () {
-        var VolgendeLiedje = AutoDj.IdOfNowPlaying + 1;
+        var VolgendeLiedje = this.IdOfNowPlaying + 1;
         if (AutoDj.Check(VolgendeLiedje) === true) {
-                AutoDj.Play(VolgendeLiedje);
-                AutoDj.IdOfNowPlaying++
+                this.Play(VolgendeLiedje);
+                this.IdOfNowPlaying++
         } else {
-                AutoDj.IdOfNowPlaying = 1;
-                AutoDj.Play(AutoDj.IdOfNowPlaying);
+                this.IdOfNowPlaying = 1;
+                this.Play(this.IdOfNowPlaying);
         }
 }
